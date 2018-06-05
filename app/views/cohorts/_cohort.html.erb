@@ -1,0 +1,10 @@
+<tr id="cohort-<%= cohort.id%>">
+     <td><%= cohort.name %></td>   
+     <td><%= cohort.start_date %></td> 
+     <td><%= cohort.end_date %></td>
+     <td><%= cohort.course_id %></td>
+
+     <td><%= link_to 'Show',  "/cohorts/#{cohort.id}"%></td>
+     <td><%= link_to 'Edit', edit_cohort_path(cohort), remote:true %></td>
+     <td><%= link_to 'Delete', cohort_path(cohort), method: :delete, remote:true, data: { confirm: 'Are you sure you want to delete this?' } %></td>
+</tr> 

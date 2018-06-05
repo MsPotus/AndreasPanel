@@ -10,8 +10,34 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+<div class="center brown green-text"><h1>Excelsior</h1></div>
+    <nav class="#76ff03 light-green accent-3 ">
+    <div class="blue-text text-darken-2">
+      <div class="nav-wrapper">
+        <%# <a href="#" class="brand-logo brown-text text-accent-4">Andrea's Panel</a> %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/cohorts" class="brown-text text-accent-4">Cohorts</a></li>
+          <li><a href="/courses" class="brown-text text-accent-4">Courses</a></li>
+          <li><a href="/instructors" class="brown-text text-accent-4">Instructors</a></li>
+          <li><a href="/students" class="brown-text text-accent-4">Students</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <main>    
+      <%= yield %>
+    </main>  
+     <footer class="page-footer #76ff03 light-green accent-3 brown-text text-accent-4"">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12"   >
+              
+
+            <span>Excelsior © 2018 Copyright</span>
+            </div>
+            </div>
+          </div>
+        </footer>
+            
   </body>
 </html>

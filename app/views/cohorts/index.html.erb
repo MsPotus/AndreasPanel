@@ -4,22 +4,37 @@
 
 <table>
   <thead>
-    <tr>
-      <th colspan="3"></th>
+     <tr>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Course ID</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="Cohorts">
     <% @cohorts.each do |cohort| %>
-      <tr>
-        <td><%= link_to 'Show', cohort %></td>
-        <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
-        <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
+      <%= render cohort %>
+
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Cohort', new_cohort_path %>
+<%= link_to 'New Cohort', new_cohort_path, remote: true, id: "ajaxcall" %>
+<div id='cohort_form'></div>
+
+  <%# <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <%= render 'form' %>
+    <%# </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>  

@@ -4,12 +4,13 @@ class InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.json
   def index
-    @instructors = Instructor.all
+    @instructors = Instructor.all.order(:id)
   end
 
   # GET /instructors/1
   # GET /instructors/1.json
   def show
+    @instructors= Instructor.find(params[:id])
   end
 
   # GET /instructors/new
@@ -69,6 +70,6 @@ class InstructorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instructor_params
-      params.fetch(:instructor, {})
+      params.require(:instructor).permit(:first_name, :last_name, :age, :salary, :highest_education, :cohort_id)
     end
 end

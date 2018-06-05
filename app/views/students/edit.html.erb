@@ -1,17 +1,12 @@
 <h1>Editing Student</h1>
 
 <%= render 'form', student: @student %>
-<form action="/student:id" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
     <!-- other inputs here -->
-    <input type="text" name="student[first_name]">
-    <input type="text" name="student[last_name]">
-    <input type="text" name="student[age]">
-    <input type="text" name="student[highest_education]">
-    <input type="text" name="student[cohort_id]">
+   
 
 
-    <input type="submit" value="Submit This Form">
-  </form>
+
 <%= link_to 'Show', @student %> |
 <%= link_to 'Back', students_path %>

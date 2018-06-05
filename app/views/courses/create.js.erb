@@ -1,0 +1,8 @@
+console.log('I am hitting this file for the create action')
+
+//Hide my new task form because the user has now submitted the data
+form.style.display = "none";
+
+//Render my new cohort into a partial and render that partial onto the screen via DOM manipulation
+
+document.getElementById('Cohort').insertAdjacentHTML('beforeend', '<%= j render partial: "course", locals: {course: @course} %>');

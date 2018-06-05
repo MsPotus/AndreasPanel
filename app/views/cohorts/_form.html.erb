@@ -1,17 +1,28 @@
-<%= form_with(model: cohort, local: true) do |form| %>
-  <% if cohort.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cohort.errors.count, "error") %> prohibited this cohort from being saved:</h2>
+<%= form_for @cohort,  remote: true do |f| %>
+  <div class="field"> 
+  <%= f.label :name %>:
+  <%= f.text_field :name, id: :cohort_name %>
+  </div>
 
-      <ul>
-      <% cohort.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+ <div class="field"> 
+  <%= f.label :start_date %>:
+  <%= f.text_field :start_date, id: :cohort_start_date %>
+  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+ <div class="field"> 
+  <%= f.label :end_date %>:
+  <%= f.text_field :end_date, id: :cohort_end_date %>
+  </div>
+
+ <div class="field"> 
+  <%= f.label :course_id %>:
+  <%= f.text_field :course_id, id: :cohort_course_id %>
+  </div>
+
+  <div class="action">
+  <%= f.submit "Submit" %>
   </div>
 <% end %>
+
+
+

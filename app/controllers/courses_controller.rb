@@ -4,17 +4,18 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.all.order(:id)
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @courses= Course.find(params[:id])
   end
 
   # GET /courses/new
   def new
-    @course = Course.new
+    @courses = Course.new
   end
 
   # GET /courses/1/edit
@@ -28,9 +29,11 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
+        format.js {puts "save cohort with js"}
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
+        format.error
         format.html { render :new }
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
@@ -69,6 +72,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.fetch(:course, {})
+      params.require(:course).permit(:name, :hours)
     end
 end

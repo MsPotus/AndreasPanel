@@ -1,0 +1,9 @@
+<tr id="course-<%= course.id%>">
+     <td><%= course.name %></td>   
+     <td><%= course.hours %></td> 
+     
+
+     <td><%= link_to 'Show',  "/courses/#{course.id}"%></td>
+     <td><%= link_to 'Edit', edit_course_path(course), remote:true %></td>
+     <td><%= link_to 'Delete', course_path(course), method: :delete, remote:true, data: { confirm: 'Are you sure you want to delete this?' } %></td>
+</tr> 

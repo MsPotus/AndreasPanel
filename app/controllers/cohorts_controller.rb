@@ -4,12 +4,13 @@ class CohortsController < ApplicationController
   # GET /cohorts
   # GET /cohorts.json
   def index
-    @cohorts = Cohort.all
+    @cohorts = Cohort.all.order(:id)
   end
 
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
+    @cohorts = Cohort.find(params[:id])
   end
 
   # GET /cohorts/new
@@ -19,6 +20,7 @@ class CohortsController < ApplicationController
 
   # GET /cohorts/1/edit
   def edit
+    @cohort = Cohort.find(params[:id]) 
   end
 
   # POST /cohorts
@@ -28,9 +30,11 @@ class CohortsController < ApplicationController
 
     respond_to do |format|
       if @cohort.save
+        format.js {puts "save cohort with js"}
         format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
         format.json { render :show, status: :created, location: @cohort }
       else
+        format.error
         format.html { render :new }
         format.json { render json: @cohort.errors, status: :unprocessable_entity }
       end
@@ -40,8 +44,12 @@ class CohortsController < ApplicationController
   # PATCH/PUT /cohorts/1
   # PATCH/PUT /cohorts/1.json
   def update
+    @cohort = Cohort.find(params[:id])
+    @cohort.update(cohort_params)
+
     respond_to do |format|
       if @cohort.update(cohort_params)
+      
         format.html { redirect_to @cohort, notice: 'Cohort was successfully updated.' }
         format.json { render :show, status: :ok, location: @cohort }
       else
@@ -54,7 +62,9 @@ class CohortsController < ApplicationController
   # DELETE /cohorts/1
   # DELETE /cohorts/1.json
   def destroy
+    @cohort = Cohort.find(params[:id])
     @cohort.destroy
+
     respond_to do |format|
       format.html { redirect_to cohorts_url, notice: 'Cohort was successfully destroyed.' }
       format.json { head :no_content }
@@ -69,6 +79,6 @@ class CohortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
-      params.fetch(:cohort, {})
+      params.require(:cohort).permit(:name, :start_date, :end_date, :course_id)
     end
 end

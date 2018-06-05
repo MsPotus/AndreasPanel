@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
+ <div class="container">
+<p>
+<strong>Name</strong>
+<%= @cohort.name %>
+</p>
 
+<p>
+<strong>Start Date</strong>
+<%= @cohort.start_date %>
+
+</p>
+<h2>Instructor</h2>
+<p>
+<%=@cohort.instructor.try(:last_name)%>
+</p>
+<br>
+<h2>Students</h2>
+<% @cohort.students.all.each do |student| %>
+
+<p><%= student.first_name + " " +student.last_name %>
+</p>
+   <% end %>
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>
+</div>

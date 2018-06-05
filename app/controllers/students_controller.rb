@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.all.order(:id)
   end
 
   # GET /students/1
@@ -71,6 +71,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.fetch(:student, {})
-    end
+      params.require(:student).permit(:first_name, :last_name, :age, :highest_education, :cohort_id)
+        end
 end
