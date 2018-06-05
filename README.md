@@ -1,25 +1,13 @@
-# README
+# Excelsior Panel
+Admin panel for a fictitious school whereby the administrator can create users and complete common administrative tasks.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Technology and Language Used:
+Ruby on Rails
+Materialized, HTML and CSS
 
-Things you may want to cover:
+# Links
+Heroku
+# Pictures and Gifs
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# AndreasPanel
+# Post MVP
