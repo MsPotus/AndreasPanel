@@ -4,9 +4,9 @@
   <%= f.label :last_name %>:
   <%= f.text_field :last_name%>
   <%= f.label :age %>:
-  <%= f.text_field :age%>
+  <%= f.number_field :age , min: '1', max: '149'%>
   <%= f.label :salary %>:
-  <%= f.text_field :salary%>
+  <%= f.number_field :salary%>
   <%= f.label :highest_education %>:
   <%= f.text_field :highest_education%>
   <%= f.label :cohort_id %>:
